@@ -58,6 +58,6 @@ for tweet in tweets_list:
 
 output = zip(clean_tweets,label)
 title = header
-writer = csv.writer(open('Hasil_Sentimen2.csv','w'))
+writer = csv.writer(open('Hasil_Sentimen.csv','w'))
 writer.writerows(title)
 writer.writerows(output)				
