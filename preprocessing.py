@@ -3,17 +3,17 @@ import re
 import csv
 
 #API Twitter
-access_token = "132440583-NYeHdsPmR80oUPhNwFEtdTjDnd7XLUMi9eWg8r6P"
-access_token_secret = "h21xqlNDy8hqyRH38T3HUYiTHPYjtDBD2eXGxFp1gCa2I"
-consumer_key = "xS0xdqfSEjVFzsZp9v4yK3hbf"
-consumer_secret = "Zxj6i0bvluqQF9Z1Ir3wziyheKB1WkuU1nQ8L41jUAMU8qzwH9"
+access_token = "ACCESS TOKEN"
+access_token_secret = "ACCESS TOKEN SECRET"
+consumer_key = "CONSUMER KEY"
+consumer_secret = "CONSUMER SECRET"
 
 auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
 auth.set_access_token(access_token,access_token_secret)
 api = tweepy.API(auth, wait_on_rate_limit=True)
 
 #Simpan hasil crawl twitter ke ikan_asin.txt
-with open('ikan_asin.txt','w') as save_file:
+with open('dataset/ikan_asin.txt','w') as save_file:
     for tweet in tweepy.Cursor(api.search, q="indonesia -filter:retweets", tweet_mode="extended", lang="id").items(5000):
         text_tweet = tweet.full_text.encode("unicode_escape").decode()
         save_file.write(text_tweet)
@@ -21,7 +21,7 @@ with open('ikan_asin.txt','w') as save_file:
         print(text_tweet)
 
 #Parse ikan_asin.txt ke list
-with open('ikan_asin.txt','r') as open_file:
+with open('dataset/ikan_asin.txt','r') as open_file:
     text_tweet = [line.rstrip('\n') for line in open_file]
 
 #Import library Sastrawi buat stemming bahasa Indonesia
@@ -71,7 +71,7 @@ for i in range(len(filtered_tweets)):
   stemmed_tweets.append(stemmed)
 
 #Membuat file ikan_asin.csv dengan mode append
-csvFile = open('ikan_asin.csv','a')
+csvFile = open('dataset/ikan_asin.csv','a')
 csvWriter = csv.writer(csvFile)
 
 #Menyimpan hasil ke ikan_asin.csv
