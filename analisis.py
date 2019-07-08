@@ -10,14 +10,14 @@ clean_tweets = []
 
 header = [{"label","tweets"}]
 
-tweets = open('ikan_asin.csv').read()
+tweets = open('dataset/ikan_asin.csv').read()
 
 tweets_list = tweets.split('\n')
 
-pos_sent = open("positif.txt").read()
+pos_sent = open("kamus/positif.txt").read()
 positive_words = pos_sent.split('\n')
 
-neg_sent = open("negatif.txt").read()
+neg_sent = open("kamus/negatif.txt").read()
 negative_words = neg_sent.split('\n')
 
 for tweet in tweets_list:
@@ -58,6 +58,6 @@ for tweet in tweets_list:
 
 output = zip(clean_tweets,label)
 title = header
-writer = csv.writer(open('Hasil_Sentimen.csv','w'))
+writer = csv.writer(open('dataset/Hasil_Sentimen.csv','w'))
 writer.writerows(title)
 writer.writerows(output)				
