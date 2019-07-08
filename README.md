@@ -7,4 +7,4 @@ analisis.py
 Training_Data.ipynb (Reccommend Google Collab)
 predict.py
 
-![alt text](https://raw.githubusercontent.com/robbysoerya/AnalisisSentimenCNN/branch/master/to/img.png)
+![alt text](https://github.com/robbysoerya/AnalisisSentimenCNN/blob/master/final_result.png?raw=true)
