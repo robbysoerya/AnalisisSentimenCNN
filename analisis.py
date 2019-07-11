@@ -8,7 +8,7 @@ negative_word = []
 label = []
 clean_tweets = []
 
-header = [{"label","tweets"}]
+header = [{"tweets","label"}]
 
 tweets = open('dataset/ikan_asin.csv').read()
 
